@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Ember.js Router Example</title>
+    <title>Studenkie Koło Naukowe WESTA</title>
     <meta name="description" content="Example of a basic Ember.js application with a Router" />
     <meta name="author" content="http://codebrief.com" />
 
@@ -21,30 +21,36 @@
     <script src="js/libs/handlebars-1.0.0.beta.6.js"></script>
     <script src="js/libs/ember.js"></script>
     <script src="js/app.js"></script>
-          <div class="row fixed height_150" style="z-index: 1; background-color: #FFFFFF; width: 100%;">
+          <div class="row fixed height_150" style="z-index: 1; background-color: #FFFFFF; width: 100%; padding-top: 10px;">
     <div class="large-12 columns">
-      <h1>Koło <small>Strona główna koła naukowego tokarzy polsl</small></h1>
-      <hr />
+      <h1 style="line-height: 120px; float: left;">Studenckie koło naukowe WESTA&nbsp;</h1><img src="img/logo.png" style="float: left;" width="120px" height="120px"/>
     </div>
   </div>
     <script type="text/x-handlebars" data-template-name="application">
+    <nav class="top-bar" data-topbar style="margin-top: 160px; position:fixed; width:100%;"> 
+      <section class="top-bar-section"> 
+        <ul class="left"> 
+          <li class="home" {{bindAttr class="isHome:active"}}><a {{action "doHome"}}>Strona Główna</a></li> 
+          <li class="home" {{bindAttr class="isNews:active"}}><a {{action "doNews"}}>Aktualności</a></li> 
+          <li class="sections" {{bindAttr class="isSections:active"}}><a {{action "doSections"}}>Sekcje</a></li> 
+          <li class="home" {{bindAttr class="isMeetings:active"}}><a {{action "doMeetings"}}>Spotkania</a></li> 
+          <li class="gallery" {{bindAttr class="isGallery:active"}}><a {{action "doGallery"}}>Galeria</a></li>
+          <li class="home" {{bindAttr class="isAboutus:active"}}><a {{action "doAboutus"}}>O nas</a></li>
+          <li class="home" {{bindAttr class="isConntact:active"}}><a {{action "doConntact"}}>Kontakt</a></li>   
+        </ul> 
+      </section> 
+    </nav>
 
-      <div class="sidebar padding_top_150">
-        <div class="home button expand" {{bindAttr class="isHome:active"}}><a {{action "doHome"}}><h3>Home</h3></a></div>
-        <div class="sections button expand" {{bindAttr class="isSections:active"}}><a {{action "doSections"}}><h3>Sections</h3></a></div>
-        <div class="items button expand" {{bindAttr class="isItems:active"}}><a {{action "doItems"}}><h3>Items</h3></a></div>
-        <div class="gallery button expand" {{bindAttr class="isGallery:active"}}><a {{action "doGallery"}}><h3>Gallery</h3></a></div>
-      </div>
-  
-      <div class="row padding_top_150" >
-      <div class="small-12 columns">
+      <div class="container padding_top_150" style="padding-top: 225px;">
+
         {{outlet}}
-        </div>
+
       </div>
     </script>
     
     <script type="text/x-handlebars" data-template-name="home">
-      <div class="hero-unit">
+      Content for Main Page
+      <div class="hero-unit hide">
         <h1>Ember.js Routing Example</h1>
         <p>
           This is a quick example showing basic usage of the Ember Router and outlets.<br />
@@ -52,13 +58,30 @@
         </p>
       </div>
     </script>
-    
+
+    <script type="text/x-handlebars" data-template-name="news">
+      Content for News
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="meetings">
+      Content for Meetings
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="aboutus">
+      Content for About us
+    </script>  
+
+    <script type="text/x-handlebars" data-template-name="conntact">
+      Content for Contact
+    </script>
+
     <script type="text/x-handlebars" data-template-name="gallery">
-      <div>Dupa dupa dupa</div>
+      Content for Gallery
     </script>
 
     <script type="text/x-handlebars" data-template-name="sections">
-      <header class="jumbotron subhead">
+      Content for sections
+      <header class="jumbotron subhead hide">
         <h1>Layout Nesting</h1>
         <p>Views can be dynamically nested using <code>&#123;&#123;outlet&#125;&#125;</code> handlebars helpers.</p>
         <div class="subnav">

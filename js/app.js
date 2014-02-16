@@ -47,7 +47,11 @@ window.App = Ember.Application.create({
     isHome: stateFlag('home'),
     isSections: stateFlag('sections'),
     isItems: stateFlag('items'),
-    isGallery: stateFlag('gallery')
+    isGallery: stateFlag('gallery'),
+    isNews: stateFlag('news'),
+    isMeetings: stateFlag('meetings'),
+    isAboutus: stateFlag('aboutus'),
+    isConntact: stateFlag('conntact')
   }),
   ApplicationView: Ember.View.extend({
     templateName: 'application'
@@ -57,11 +61,32 @@ window.App = Ember.Application.create({
   HomeView: Ember.View.extend({
     templateName: 'home'
   }),
-  
+
   GalleryController: Ember.Controller.extend(),
   GalleryView: Ember.View.extend({
     templateName: 'gallery'
   }),
+
+  NewsController: Ember.Controller.extend(),
+  NewsView: Ember.View.extend({
+    templateName: 'news'
+  }),
+
+  MeetingsController: Ember.Controller.extend(),
+  MeetingsView: Ember.View.extend({
+    templateName: 'meetings'
+  }),
+
+  AboutusController: Ember.Controller.extend(),
+  AboutusView: Ember.View.extend({
+    templateName: 'aboutus'
+  }),
+
+  ConntactController: Ember.Controller.extend(),
+  ConntactView: Ember.View.extend({
+    templateName: 'conntact'
+  }),
+
 
   SectionsController: Ember.Controller.extend({
     isSectionA: stateFlag('sectionA'),
@@ -107,16 +132,52 @@ window.App = Ember.Application.create({
       doGallery: function(router, event){
         router.transitionTo('gallery');
       },
+      doAboutus: function(router, event) {
+        router.transitionTo('aboutus');
+      },
+      doMeetings: function(router, event) {
+        router.transitionTo('meetings');
+      },
+      doConntact: function(router, event) {
+        router.transitionTo('conntact');
+      },
+      doNews: function(router, event){
+        router.transitionTo('news');
+      },
       home: Ember.Route.extend({
         route: '/',
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('home');
         }
       }),
+      aboutus: Ember.Route.extend({
+        route: '/aboutus',
+        connectOutlets: function(router, event) {
+          router.get('applicationController').connectOutlet('aboutus');
+        }
+      }),
+      meetings: Ember.Route.extend({
+        route: '/meetings',
+        connectOutlets: function(router, event) {
+          router.get('applicationController').connectOutlet('meetings');
+        }
+      }),
+      conntact: Ember.Route.extend({
+        route: '/conntact',
+        connectOutlets: function(router, event) {
+          router.get('applicationController').connectOutlet('conntact');
+        }
+      }),      
       gallery: Ember.Route.extend({
         route: '/gallery',
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('gallery');
+        }
+      }),
+      news: Ember.Route.extend({
+        route: '/news',
+        connectOutlets: function(router, event) {
+          router.get('applicationController').connectOutlet('news');
         }
       }),
       sections: Ember.Route.extend({
