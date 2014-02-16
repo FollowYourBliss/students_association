@@ -46,3 +46,10 @@
 .active{
   background-color: #3366FF;
 }
+nav.top-bar {
+text-align:center;
+}
+section.top-bar-section {
+display: inline-block;
+margin-left: -132px;
+}
