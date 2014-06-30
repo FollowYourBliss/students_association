@@ -14,12 +14,22 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=618206168260151";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <script src="js/libs/jquery-1.7.1.js"></script>
     <script src="js/libs/jquery.lorem.js"></script>
-    <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/handlebars-1.0.0.beta.6.js"></script>
     <script src="js/libs/ember.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/foundation.min.js"></script>
     <script src="js/app.js"></script>
           <div class="row fixed" style="z-index: 1; background-color: #FFFFFF; width: 100%; padding-top: 10px;">
     <div class="large-12 columns">
@@ -27,27 +37,49 @@
     </div>
   </div>
     <script type="text/x-handlebars" data-template-name="application">
-    <nav class="top-bar" data-topbar style="margin-top: 145px; position:fixed; width:100%;"> 
-      <section class="top-bar-section center"> 
-        <ul> 
-          <li class="home" {{bindAttr class="isHome:active"}}><a {{action "doHome"}}>Strona Główna</a></li> 
-          <li class="home" {{bindAttr class="isNews:active"}}><a {{action "doNews"}}>Aktualności</a></li> 
-          <li class="sections" {{bindAttr class="isSections:active"}}><a {{action "doSections"}}>Sekcje</a></li> 
-          <li class="home" {{bindAttr class="isMeetings:active"}}><a {{action "doMeetings"}}>Spotkania</a></li> 
-          <li class="gallery" {{bindAttr class="isGallery:active"}}><a {{action "doGallery"}}>Galeria</a></li>
+    <nav class="top-bar" data-topbar style="margin-top: 145px; position:fixed; width:100%;">
+      <section class="top-bar-section center">
+        <ul>
+          <li class="home" {{bindAttr class="isHome:active"}}><a {{action "doHome"}}>Strona Główna</a></li>
           <li class="home" {{bindAttr class="isAboutus:active"}}><a {{action "doAboutus"}}>O nas</a></li>
-          <li class="home" {{bindAttr class="isConntact:active"}}><a {{action "doConntact"}}>Kontakt</a></li>   
-        </ul> 
-      </section> 
+          <li class="home" {{bindAttr class="isActivity:active"}}><a {{action "doActivity"}}>Działalność</a></li>
+          <li class="sections" {{bindAttr class="isSections:active"}}><a {{action "doSections"}}>Członkowie</a></li>
+          <li class="gallery" {{bindAttr class="isGallery:active"}}><a {{action "doGallery"}}>Galeria</a></li>
+          <li class="home" {{bindAttr class="isConntact:active"}}><a {{action "doConntact"}}>Kontakt</a></li>
+        </ul>
+      </section>
     </nav>
 
-      <div class="container padding_top_150" style="padding-top: 225px;">
-
-        {{outlet}}
-
+      <div class="row padding_top_150" style="padding-top: 225px;">
+          <div class="large-8 columns pre-line">
+            <div class="row">
+            {{outlet}}
+            </div>
+            <div class="row">
+              <div class="fb-like-box" data-href="https://www.facebook.com/pages/SKN-WESTA/688852017842836" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+              </div>
+          </div>
+          <div class="large-4 columns pre-line">
+              Linki<br/>
+              <a href="http://www.polsl.pl/wydzialy/roz/Strony/Witamy.aspx">Wydział Organizacji i Zarządzania Politechniki Śląskiej</a>
+              <a href="http://www.polsl.pl/Strony/Witamy.aspx">Politechnika Śląska</a>
+              <a href="http://www.samorzad.polsl.pl/">Samorząd Studencki Politechniki Śląskiej</a>
+              <a href="http://www.kariera.polsl.pl/">Biuro Karier Studenckich</a>
+              <a href="http://www.pip.gov.pl/">Państwo Inspekcja Pracy</a>
+              <a href="http://www.gis.gov.pl/?go=news">Państwowa Inspekcja Sanitarna</a>
+              <a href="http://www.straz.gov.pl/page/index.php">Komenda Główna Państwowej Straży Pożarnej</a>
+              <a href="http://www.policja.pl/">Komenda Główna Policji</a>
+              <a href="http://www.ciop.pl/">Centralny Instytut Pracy</a>
+              <a href="http://www.mpips.gov.pl/">Ministerstwo Pracy i Polityki Społecznej</a>
+              <hr/>
+              Serwisy informacyjne poświęcone tematyce BHP
+              <a href="http://www.bhp.abc.com.pl/">http://www.bhp.abc.com.pl/</a>
+              <a href="http://www.portalbhp.pl/">http://www.portalbhp.pl/</a>
+              <a href="http://www.iso.org.pl/zarzadzanie-bhp">http://www.iso.org.pl/zarzadzanie-bhp</a>
+         </div>
       </div>
     </script>
-    
+
     <script type="text/x-handlebars" data-template-name="home">
       Content for Main Page
       <div class="hero-unit hide">
@@ -59,8 +91,13 @@
       </div>
     </script>
 
+
     <script type="text/x-handlebars" data-template-name="news">
       Content for News
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="activity">
+      Content for a
     </script>
 
     <script type="text/x-handlebars" data-template-name="meetings">
@@ -68,33 +105,78 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="aboutus">
-      Content for About us
-    </script>  
+        O NAS
+
+          Studenckie Koło Naukowe WESTA zostało założone 7 czerwca 2004 roku przy Katedrze Zarządzania Środowiskiem i Bezpieczeństwem na Wydziale Organizacji i Zarządzania Politechniki Śląskiej w Zabrzu. Pierwszym opiekunem SKN WESTA była Pani dr Anna Gembalska-Kwiecień, w roku ?? nowym opiekunem został Pan dr inż. Zbigniew Żurakowski. Obecnie SKN WESTA działa przy Zakładzie Zarządzania Jakością i Bezpieczeństwem w Instytucie Inżynierii Produkcji.
+
+        Koło Naukowe WESTA skupia studentów zainteresowanych szeroką tematyką związaną z bezpieczeństwem, działalność koła obejmuje:
+        <ul>
+          <li>Poszerzanie i propagowanie wiedzy związanej z bezpieczeństwem</li>
+          <li>Poznawanie i nawiązywanie współpracy z organizacjami, które zajmują się zagadnieniami bezpieczeństwa</li>
+          <li>Organizowanie wyjazdów i spotkań naukowych</li>
+          <li>Uczestnictwo w konferencjach, wykładach i sympozjach poświęconych problematyce bezpieczeństwa</li>
+        </ul>
+    </script>
 
     <script type="text/x-handlebars" data-template-name="conntact">
-      Content for Contact
+  KONTAKT
+
+  Możecie kontaktować się z nami mailowo pod adresem <a href="mailto:sknwesta@hotmail.com">sknwesta@hotmail.com</a> lub słać nam prywatne wiadomości na naszej stronie facebookowej.
+
+  Jeżeli zależy Wam na bezpośrednim kontakcie dzwońcie do Przewodniczącego SKN WESTA Mateusza Wadowskiego na numer telefonu 535 078 451, koszt połączenia zgodny z taryfą operatora.
     </script>
 
     <script type="text/x-handlebars" data-template-name="gallery">
       Content for Gallery
+      <ul class="clearing-thumbs" data-clearing>
+        <li>
+          <a class="th" href="img/gallery/meteor.jpg">
+            <img src="img/gallery/meteor.jpg" width="150px;" height="150px">
+          </a>
+        </li>
+      </ul>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="sections">
-      Content for sections
-      <header class="jumbotron subhead hide">
-        <h1>Layout Nesting</h1>
-        <p>Views can be dynamically nested using <code>&#123;&#123;outlet&#125;&#125;</code> handlebars helpers.</p>
-        <div class="subnav">
-          <ul class ="nav nav-pills">
-            <li class="sectionA" {{bindAttr class="isSectionA:active"}}><a {{action "doSectionA"}}>Section A</a></li>
-            <li class="sectionB" {{bindAttr class="isSectionB:active"}}><a {{action "doSectionB"}}>Section B</a></li>
-            <li class="sectionC" {{bindAttr class="isSectionC:active"}}><a {{action "doSectionC"}}>Section C</a></li>
-            <li class="sectionD" {{bindAttr class="isSectionD:active"}}><a {{action "doSectionD"}}>Section D</a></li>
-          </ul>
-        </div>
-      </header>
-      {{outlet}}
+        <script type="text/x-handlebars" data-template-name="sections">
+      CZŁONKOWIE
+
+      <strong>Przewodniczący:</strong>
+      Mateusz Wadowski <i>kontakt: 535 078 451</i>
+
+      <strong>Zastępca:</strong>
+      ??
+
+      <strong>Sekcja finansowa:</strong>
+      Magdalena Kostecka <i>kontakt: 723 880 515</i>
+       …..
+
+      <strong>Sekcja organizacyjna:   </strong>
+      Alan Kowalik <i>kontakt: 664 384 168</i>
+      Karolina Karwat
+      Anna Dunikowska
+      Magdalena Pietrasz
+      Sławomir Kotynia
+      Sekcja szkoleniowa:
+      Hanna Kołodziej <i>kontakt: 793 577 236</i>
+      Aleksandra Moćko
+
+      <strong>Sekcja marketingowa:</strong>
+      Monika Stępień <i>kontakt: 606 383 698</i>
+      Marcin Wilczek
+      Adam Średniawa
+
+      <strong>Administrator strony internetowej:</strong>
+      Wojciech Krauzy <i>kontakt: 668 606 944</i>
+
+      <strong>Pozostali członkowie:</strong>
+      Joanna Choinica
+      Anita Domagała
+      Katarzyna Kalinowska
+      Justyna Zdzieblik
+      Sylwia Zendla
     </script>
+
+
 
     <script type="text/x-handlebars" data-template-name="sectionA">
       <section>

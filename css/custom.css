@@ -8,6 +8,9 @@
   padding-left: 280px;
   width: 100%;
 }
+.pre-line{
+  white-space:pre-line;
+}
 
 .sidebar {
   -moz-box-sizing: border-box;
@@ -23,7 +26,10 @@
 
 @media only screen and (max-width: 640px) {
 
-  body { -webkit-text-size-adjust: none; }
+  body {
+    -webkit-text-size-adjust: none;
+    white-space:pre;
+  }
         .container { padding-left: 0; }
   .sidebar {
     background: #ffffff;
@@ -52,4 +58,14 @@ text-align:center;
 section.top-bar-section {
 display: inline-block;
 margin-left: -132px;
+}
+
+#fb-root {
+  display: none;
+}
+
+/* To fill the container and nothing else */
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important;
 }

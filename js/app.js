@@ -48,13 +48,19 @@ window.App = Ember.Application.create({
     isSections: stateFlag('sections'),
     isItems: stateFlag('items'),
     isGallery: stateFlag('gallery'),
+    isActivity: stateFlag('activity'),
     isNews: stateFlag('news'),
     isMeetings: stateFlag('meetings'),
     isAboutus: stateFlag('aboutus'),
     isConntact: stateFlag('conntact')
   }),
   ApplicationView: Ember.View.extend({
-    templateName: 'application'
+    templateName: 'application',
+    didInsertElement: function(){
+      this._super();
+      console.log("Koko");
+      this.$(document).foundation()
+    }
   }),
 
   HomeController: Ember.Controller.extend(),
@@ -65,6 +71,11 @@ window.App = Ember.Application.create({
   GalleryController: Ember.Controller.extend(),
   GalleryView: Ember.View.extend({
     templateName: 'gallery'
+  }),
+
+  ActivityController: Ember.Controller.extend(),
+  ActivityView: Ember.View.extend({
+    templateName: 'activity'
   }),
 
   NewsController: Ember.Controller.extend(),
@@ -144,10 +155,19 @@ window.App = Ember.Application.create({
       doNews: function(router, event){
         router.transitionTo('news');
       },
+      doActivity: function(router, event){
+        router.transitionTo('activity');
+      },
       home: Ember.Route.extend({
         route: '/',
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('home');
+        }
+      }),
+      activity: Ember.Route.extend({
+        route: '/activity',
+        connectOutlets: function(router, event) {
+          router.get('applicationController').connectOutlet('activity');
         }
       }),
       aboutus: Ember.Route.extend({
@@ -167,7 +187,7 @@ window.App = Ember.Application.create({
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('conntact');
         }
-      }),      
+      }),
       gallery: Ember.Route.extend({
         route: '/gallery',
         connectOutlets: function(router, event) {
