@@ -79,15 +79,15 @@
               <a href="http://www.iso.org.pl/zarzadzanie-bhp">http://www.iso.org.pl/zarzadzanie-bhp</a>
          </div>
       </div>
-      Gówno
-      <?php
-        foreach (glob("years/*.html") as $filename)
-        {
-          include $filename;
-        }
-      ?>
     </script>
 
+    <!--- Add all the stuff -->
+    <?php
+      foreach (glob("years/*.html") as $filename)
+      {
+        include $filename;
+      }
+    ?>
     <script type="text/x-handlebars" data-template-name="home">
       Content for Main Page
       <div class="hero-unit hide">
