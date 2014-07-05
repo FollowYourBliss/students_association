@@ -73,7 +73,19 @@ window.App = Ember.Application.create({
     templateName: 'gallery'
   }),
 
-  ActivityController: Ember.Controller.extend(),
+  ActivityController: Ember.Controller.extend({
+    is2004: stateFlag('2004'),
+    is2005: stateFlag('2005'),
+    is2006: stateFlag('2006'),
+    is2007: stateFlag('2007'),
+    is2008: stateFlag('2008'),
+    is2009: stateFlag('2009'),
+    is2010: stateFlag('2010'),
+    is2011: stateFlag('2011'),
+    is2012: stateFlag('2012'),
+    is2013: stateFlag('2013'),
+    is2014: stateFlag('2014')
+  }),
   ActivityView: Ember.View.extend({
     templateName: 'activity'
   }),
@@ -98,13 +110,7 @@ window.App = Ember.Application.create({
     templateName: 'conntact'
   }),
 
-
-  SectionsController: Ember.Controller.extend({
-    isSectionA: stateFlag('sectionA'),
-    isSectionB: stateFlag('sectionB'),
-    isSectionC: stateFlag('sectionC'),
-    isSectionD: stateFlag('sectionD')
-  }),
+  SectionsController: Ember.Controller.extend(),
   SectionsView: Ember.View.extend({
     templateName: 'sections'
   }),

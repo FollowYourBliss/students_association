@@ -81,11 +81,9 @@
       </div>
       Gówno
       <?php
-        echo("Dupa");
         foreach (glob("years/*.html") as $filename)
         {
           include $filename;
-          echo("koko");
         }
       ?>
     </script>
@@ -107,7 +105,8 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="activity">
-      Content for a
+      {{partial "list"}}
+      Wybierz rok, który Cię interesuje
     </script>
 
     <script type="text/x-handlebars" data-template-name="meetings">
