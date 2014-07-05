@@ -168,7 +168,15 @@ window.App = Ember.Application.create({
         route: '/activity',
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('activity');
-        }
+        },
+        activity: Ember.Route.extend({
+          route: '/:activity_id',
+          connectOutlets: function(router, context) {
+            var item = context.activity_id;
+            console.log(item);
+            router.get('applicationController').connectOutlet(item);
+          }
+        })
       }),
       aboutus: Ember.Route.extend({
         route: '/aboutus',

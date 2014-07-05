@@ -36,6 +36,7 @@
       <img src="img/logo.png" style="float: left;" width="120px" height="120px"/><h2 style="line-height: 120px; float: left;">&nbsp;STUDENCKIE KOŁO NAUKOWE WESTA&nbsp;</h2>
     </div>
   </div>
+
     <script type="text/x-handlebars" data-template-name="application">
     <nav class="top-bar" data-topbar style="margin-top: 145px; position:fixed; width:100%;">
       <section class="top-bar-section center">
@@ -78,6 +79,15 @@
               <a href="http://www.iso.org.pl/zarzadzanie-bhp">http://www.iso.org.pl/zarzadzanie-bhp</a>
          </div>
       </div>
+      Gówno
+      <?php
+        echo("Dupa");
+        foreach (glob("years/*.html") as $filename)
+        {
+          include $filename;
+          echo("koko");
+        }
+      ?>
     </script>
 
     <script type="text/x-handlebars" data-template-name="home">
@@ -178,6 +188,8 @@
       </ul>
     </script>
 
+
+
         <script type="text/x-handlebars" data-template-name="sections">
       CZŁONKOWIE
 
@@ -264,6 +276,9 @@
       <h1>{{title}}</h1>
       {{{description}}}
     </script>
+
+
+
 
   </body>
 </html>
