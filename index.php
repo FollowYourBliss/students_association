@@ -81,7 +81,6 @@
       </div>
     </script>
 
-    <!--- Add all the stuff -->
     <?php
       foreach (glob("years/*.html") as $filename)
       {
@@ -105,8 +104,10 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="activity">
-      {{partial "list"}}
       Wybierz rok, który Cię interesuje
+      <?php
+        include 'years/list.html';
+      ?>
     </script>
 
     <script type="text/x-handlebars" data-template-name="meetings">
@@ -136,15 +137,6 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="gallery">
-      Gallery
-      <hr/>
-      <ul class="clearing-thumbs" data-clearing>
-        <li>
-          <a class="th" href="img/gallery/meteor.jpg">
-            <img src="img/gallery/meteor.jpg" width="150px;" height="150px">
-          </a>
-        </li>
-      </ul>
       Dni wydziału 2009
       <hr/>
       <ul class="clearing-thumbs" data-clearing style="display:inline-block;white-space:nowrap">
@@ -178,12 +170,6 @@
             <img src="img/gallery/dni_wydzialu_2009/PIC_0420 (1).JPG" width="150px;" height="150px">
           </a>
         </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0420.JPG>
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0420.JPG>
-          </a>
-        </li>
-
       </ul>
     </script>
 
@@ -227,8 +213,6 @@
       Justyna Zdzieblik
       Sylwia Zendla
     </script>
-
-
 
     <script type="text/x-handlebars" data-template-name="sectionA">
       <section>

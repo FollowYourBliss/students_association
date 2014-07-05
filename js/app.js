@@ -95,6 +95,40 @@ window.App = Ember.Application.create({
     templateName: 'news'
   }),
 
+  A2014View: Ember.View.extend({
+    templateName: '2014'
+  }),
+  A2013View: Ember.View.extend({
+    templateName: '2013'
+  }),
+  A2012View: Ember.View.extend({
+    templateName: '2012'
+  }),
+  A2011View: Ember.View.extend({
+    templateName: '2011'
+  }),
+  A2010View: Ember.View.extend({
+    templateName: '2010'
+  }),
+  A2009View: Ember.View.extend({
+    templateName: '2009'
+  }),
+  A2008View: Ember.View.extend({
+    templateName: '2008'
+  }),
+  A2007View: Ember.View.extend({
+    templateName: '2007'
+  }),
+  A2006View: Ember.View.extend({
+    templateName: '2006'
+  }),
+  A2005View: Ember.View.extend({
+    templateName: '2005'
+  }),
+  A2004View: Ember.View.extend({
+    templateName: '2004'
+  }),
+
   MeetingsController: Ember.Controller.extend(),
   MeetingsView: Ember.View.extend({
     templateName: 'meetings'
@@ -176,11 +210,11 @@ window.App = Ember.Application.create({
           router.get('applicationController').connectOutlet('activity');
         },
         activity: Ember.Route.extend({
-          route: '/:activity_id',
+          route: '/:year',
           connectOutlets: function(router, context) {
-            var item = context.activity_id;
+            var item = context.year;
             console.log(item);
-            router.get('applicationController').connectOutlet(item);
+            router.get('applicationController').connectOutlet("a"+item);
           }
         })
       }),
