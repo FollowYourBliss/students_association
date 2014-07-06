@@ -31,14 +31,14 @@
     <script src="js/modernizr.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/app.js"></script>
-          <div class="row fixed" style="z-index: 1; background-color: #FFFFFF; width: 100%; padding-top: 10px;">
+  <div class="row fixed" style="background-color: #FFFFFF; width: 100%; padding-top: 10px; max-width:100%;">
     <div class="large-12 columns">
-      <img src="img/logo.png" style="float: left;" width="120px" height="120px"/><h2 style="line-height: 120px; float: left;">&nbsp;STUDENCKIE KOŁO NAUKOWE WESTA&nbsp;</h2>
+      <img src="img/logo.png" style="float: left;" width="120px" height="120px"/><h2 style="line-height: 124px; float: left;">&nbsp;STUDENCKIE KOŁO NAUKOWE WESTA&nbsp;</h2>
     </div>
   </div>
 
     <script type="text/x-handlebars" data-template-name="application">
-    <nav class="top-bar" data-topbar style="margin-top: 145px; position:fixed; width:100%;">
+    <nav class="top-bar" data-topbar style="margin-top: 145px; position:fixed; width:100%; z-index:100">
       <section class="top-bar-section center">
         <ul>
           <li class="home" {{bindAttr class="isHome:active"}}><a {{action "doHome"}}>Strona Główna</a></li>
@@ -82,20 +82,15 @@
     </script>
 
     <?php
-      foreach (glob("years/*.html") as $filename)
+      foreach (glob("years/2*.php") as $filename)
       {
         include $filename;
       }
     ?>
-    <script type="text/x-handlebars" data-template-name="home">
-      Content for Main Page
-      <div class="hero-unit hide">
-        <h1>Ember.js Routing Example</h1>
-        <p>
-          This is a quick example showing basic usage of the Ember Router and outlets.<br />
-          View it on <a href="https://github.com/ghempton/ember-router-example">GitHub</a>.
-        </p>
-      </div>
+    <script type="text/x-handlebars" data-template-name="home"><h3>Witamy</h3>
+Witamy na stronie koła naukowego <strong>WESTA!</strong>
+
+Zapraszamy do polubienia naszej strony na facebooku! (link poniżej)
     </script>
 
 
@@ -115,9 +110,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="aboutus">
-        O NAS
-
-          Studenckie Koło Naukowe WESTA zostało założone 7 czerwca 2004 roku przy Katedrze Zarządzania Środowiskiem i Bezpieczeństwem na Wydziale Organizacji i Zarządzania Politechniki Śląskiej w Zabrzu. Pierwszym opiekunem SKN WESTA była Pani dr Anna Gembalska-Kwiecień, w roku ?? nowym opiekunem został Pan dr inż. Zbigniew Żurakowski. Obecnie SKN WESTA działa przy Zakładzie Zarządzania Jakością i Bezpieczeństwem w Instytucie Inżynierii Produkcji.
+        <h3>O NAS</h3>Studenckie Koło Naukowe WESTA zostało założone 7 czerwca 2004 roku przy Katedrze Zarządzania Środowiskiem i Bezpieczeństwem na Wydziale Organizacji i Zarządzania Politechniki Śląskiej w Zabrzu. Pierwszym opiekunem SKN WESTA była Pani dr Anna Gembalska-Kwiecień, w roku ?? nowym opiekunem został Pan dr inż. Zbigniew Żurakowski. Obecnie SKN WESTA działa przy Zakładzie Zarządzania Jakością i Bezpieczeństwem w Instytucie Inżynierii Produkcji.
 
         Koło Naukowe WESTA skupia studentów zainteresowanych szeroką tematyką związaną z bezpieczeństwem, działalność koła obejmuje:
         <ul>
@@ -140,36 +133,12 @@
       Dni wydziału 2009
       <hr/>
       <ul class="clearing-thumbs" data-clearing style="display:inline-block;white-space:nowrap">
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0418.JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0418.JPG" width="150px;" height="150px">
-          </a>
-        </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0421.JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0421.JPG" width="150px;" height="150px">
-          </a>
-        </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0419.JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0419.JPG" width="150px;" height="150px">
-          </a>
-        </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0422.JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0422.JPG" width="150px;" height="150px">
-          </a>
-        </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0417.JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0417.JPG" width="150px;" height="150px">
-          </a>
-        </li>
-        <li>
-          <a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0420 (1).JPG">
-            <img src="img/gallery/dni_wydzialu_2009/PIC_0420 (1).JPG" width="150px;" height="150px">
-          </a>
-        </li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0418.JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0418.JPG" width="150px;" height="150px"></a></li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0421.JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0421.JPG" width="150px;" height="150px"></a></li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0419.JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0419.JPG" width="150px;" height="150px"></a></li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0422.JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0422.JPG" width="150px;" height="150px"></a></li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0417.JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0417.JPG" width="150px;" height="150px"></a></li>
+        <li><a class="th" href="img/gallery/dni_wydzialu_2009/PIC_0420 (1).JPG"><img src="img/gallery/dni_wydzialu_2009/PIC_0420 (1).JPG" width="150px;" height="150px"></a></li>
       </ul>
     </script>
 

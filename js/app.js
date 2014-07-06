@@ -73,19 +73,7 @@ window.App = Ember.Application.create({
     templateName: 'gallery'
   }),
 
-  ActivityController: Ember.Controller.extend({
-    is2004: stateFlag('2004'),
-    is2005: stateFlag('2005'),
-    is2006: stateFlag('2006'),
-    is2007: stateFlag('2007'),
-    is2008: stateFlag('2008'),
-    is2009: stateFlag('2009'),
-    is2010: stateFlag('2010'),
-    is2011: stateFlag('2011'),
-    is2012: stateFlag('2012'),
-    is2013: stateFlag('2013'),
-    is2014: stateFlag('2014')
-  }),
+  ActivityController: Ember.Controller.extend(),
   ActivityView: Ember.View.extend({
     templateName: 'activity'
   }),
@@ -209,14 +197,46 @@ window.App = Ember.Application.create({
         connectOutlets: function(router, event) {
           router.get('applicationController').connectOutlet('activity');
         },
-        activity: Ember.Route.extend({
-          route: '/:year',
+        year: Ember.Route.extend({
+          route: '/:number',
           connectOutlets: function(router, context) {
-            var item = context.year;
-            console.log(item);
+            var item = context.number;
             router.get('applicationController').connectOutlet("a"+item);
           }
-        })
+        }),
+        do2004: function(router, event) {
+          router.transitionTo('year', {number: "2004"});
+        },
+        do2005: function(router, event) {
+          router.transitionTo('year', {number: "2005"});
+        },
+        do2006: function(router, event) {
+          router.transitionTo('year', {number: "2006"});
+        },
+        do2007: function(router, event) {
+          router.transitionTo('year', {number: "2007"});
+        },
+        do2008: function(router, event) {
+          router.transitionTo('year', {number: "2008"});
+        },
+        do2009: function(router, event) {
+          router.transitionTo('year', {number: "2009"});
+        },
+        do2010: function(router, event) {
+          router.transitionTo('year', {number: "2010"});
+        },
+        do2011: function(router, event) {
+          router.transitionTo('year', {number: "2011"});
+        },
+        do2012: function(router, event) {
+          router.transitionTo('year', {number: "2012"});
+        },
+        do2013: function(router, event) {
+          router.transitionTo('year', {number: "2013"});
+        },
+        do2014: function(router, event) {
+          router.transitionTo('year', {number: "2014"});
+        },
       }),
       aboutus: Ember.Route.extend({
         route: '/aboutus',
@@ -256,14 +276,6 @@ window.App = Ember.Application.create({
         index: Ember.Route.extend({
           route: '/',
         }),
-        doSectionA: function(router, event) { router.transitionTo('sections.sectionA'); },
-        sectionA: sectionRoute('A'),
-        doSectionB: function(router, event) { router.transitionTo('sections.sectionB'); },
-        sectionB: sectionRoute('B'),
-        doSectionC: function(router, event) { router.transitionTo('sections.sectionC'); },
-        sectionC: sectionRoute('C'),
-        doSectionD: function(router, event) { router.transitionTo('sections.sectionD'); },
-        sectionD: sectionRoute('D')
       }),
       items: Ember.Route.extend({
         route: '/items',
